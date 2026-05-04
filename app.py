@@ -7,8 +7,6 @@ from google import genai
 import base64, json
 import requests
 
-gemini = genai.Client(api_key="REMOVED_GOOGLE_API_KEY")
-
 app = Flask(__name__)
 app.secret_key = "eco123"
 
@@ -153,7 +151,7 @@ challenges_list = [
 
 # -------------------- AI VERIFICATION --------------------
 
-GROQ_API_KEY = "REMOVED_GROQ_KEY91vikq5sr1b8WZQcwaorWGdyb3FYi36Z5mldubTrsDDeJXpcsbk3"
+api_key = os.environ.get("GROQ_API_KEY")
 
 def verify_challenge_photo(filepath, challenge_title):
     prompts = {
